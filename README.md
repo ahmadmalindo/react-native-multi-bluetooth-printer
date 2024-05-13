@@ -49,6 +49,7 @@ export default function App() {
     for (let i = 0; i < printer.length; i++ ) {
       let params = {
         payload : 
+        "[C]<img>your image url</img>"
         "[L]\n" +
         "[C]<u><font size='big'>ORDER N°045</font></u>\n" +
         "[L]\n" +
@@ -118,6 +119,13 @@ const styles = StyleSheet.create({
   },
 });
 ```
+
+## Payload
+
+same as https://github.com/DantSu/ESCPOS-ThermalPrinter-Android/tree/3.0.1#formatted-text--syntax-guide
+except for the `<img></img>` tag
+
+place the image url directly between the img tags
 
 ## Contributing
 
