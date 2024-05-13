@@ -68,10 +68,19 @@
     "prettier": "^3.0.3",
     "react": "18.2.0",
     "react-native": "0.74.1",
-    "react-native-builder-bob": "^0.20.0",
+    "react-native-builder-bob": "^0.23.2",
     "release-it": "^15.0.0",
     "turbo": "^1.10.7",
     "typescript": "^5.2.2"
+  },
+  "react-native-builder-bob": {
+    "source": "src",
+    "output": "lib",
+    "targets": [
+      "commonjs",
+      "module",
+      "typescript"
+    ]
   },
   "resolutions": {
     "@types/react": "^18.2.44"
@@ -142,19 +151,5 @@
     "tabWidth": 2,
     "trailingComma": "es5",
     "useTabs": false
-  },
-  "react-native-builder-bob": {
-    "source": "src",
-    "output": "lib",
-    "targets": [
-      "commonjs",
-      "module",
-      [
-        "typescript",
-        {
-          "project": "tsconfig.build.json"
-        }
-      ]
-    ]
   }
 }
