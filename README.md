@@ -16,7 +16,7 @@ yarn add react-native-multi-bluetooth-printer
 import * as React from 'react';
 
 import { StyleSheet, View, Text, Button } from 'react-native';
-import { isBluetoothEnabled, listsBloetoothDeviceLists, printBluetoothSelectDevice } from 'react-native-multi-bluetooth-printer';
+import MultiBluetoothPrinter from 'react-native-multi-bluetooth-printer';
 
 export default function App() {
 
@@ -24,7 +24,7 @@ export default function App() {
 
 // getBluetoothDevice enable or not enable
   const getBluetoothIsEnabled = async () => {
-    await isBluetoothEnabled().then((granted) => {
+    await MultiBluetoothPrinter.isBluetoothEnabled().then((granted) => {
       if (granted) {
         alert("Your Bluetooth is Enable")
       }
@@ -38,7 +38,7 @@ export default function App() {
 
 // getListBluetoothDevice connected (if not connect, connect manual in your android)
   const getListsBloetoothDeviceLists = async () => {
-    await listsBloetoothDeviceLists().then((lists) => {
+    await MultiBluetoothPrinter.listsBloetoothDeviceLists().then((lists) => {
       console.log(JSON.stringify(lists));
       setPrinter(lists)
     }) 
@@ -78,7 +78,7 @@ export default function App() {
         deviceAddress: printer[i].deviceAddress
       }
 
-      await printBluetoothSelectDevice(params).then(() => alert('Success'))
+      await MultiBluetoothPrinter.printBluetoothSelectDevice(params).then(() => alert('Success'))
       .catch ((e) => {
         alert(JSON.stringify(e))
       })
